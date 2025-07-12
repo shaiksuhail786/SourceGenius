@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SourceGenius</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="sticky-navbar py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-extrabold text-primary-light dark:text-primary-dark">SourceGenius</div>
+        <div class="desktop-nav-menu flex space-x-8">
+            <!-- <a href="#home" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Home</a>
+            <a href="#what-are-ai-tools" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">What is AI?</a>
+            <a href="#how-ai-tools-work" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">How AI Works</a>
+            <a href="#why-ai-tools-important" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Why Important?</a>
+            <a href="#categories-of-ai-tools" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Categories</a>
+            <a href="#how-to-use-ai-tools" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">How to Use</a>
+            <a href="#ai-prompt-generator" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Prompt Generator</a>
+            <a href="#all-purposes-of-ai-tools" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Purposes</a>
+            <a href="#future-of-ai" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Future of AI</a>
+            <a href="#ai-tool-directory" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Directory</a>
+            <a href="#blog-section" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">Blog</a>
+            <a href="#about-us" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">About Us</a> -->
+        </div>
+        <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+                <!-- Sun icon for light mode, Moon icon for dark mode -->
+                <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M3 12h1m15.325-7.757l-.707.707M4.343 19.657l-.707-.707M19.657 4.343l-.707.707M4.343 4.343l-.707-.707M18 12a6 6 0 11-12 0 6 6 0 0112 0z"></path></svg>
+                <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+            <div class="hamburger-menu md:hidden" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Sidebar -->
+   <!-- Toggle Button -->
+<button onclick="toggleSidebar()" style="position: fixed; top: 14px; left: 302px; z-index: 1000; background-color: #1f2937; color: white; padding: 10px 14px; border: none; border-radius: 6px; font-size: 16px;">
+    ☰
+</button>
+
+
+<!-- Mobile Navigation Sidebar -->
+<div id="mobile-nav-menu" style="position: fixed; top: 0; left: -300px; width: 260px; height: 100vh; background-color: #fefefe; z-index: 999; overflow-y: auto; box-shadow: 2px 0 6px rgba(0,0,0,0.2); transition: left 0.3s ease;">
+    <a href="#home" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Home</a>
+    <a href="#what-are-ai-tools" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">What is AI?</a>
+    <a href="#how-ai-tools-work" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">How AI Works</a>
+    <a href="#why-ai-tools-important" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Why Important?</a>
+    <a href="#categories-of-ai-tools" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Categories</a>
+    <a href="#how-to-use-ai-tools" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">How to Use</a>
+    <a href="#all-purposes-of-ai-tools" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Purposes</a>
+    <a href="#future-of-ai" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Future of AI</a>
+    <a href="#ai-tool-directory" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Directory</a>
+    <a href="#blog-section" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">Blog</a>
+    <a href="#about-us" style="color: #111827; display: block; padding: 16px 24px; font-size: 18px; font-weight: 500; border-bottom: 1px solid #e5e7eb;">About Us</a>
+</div>
+
+<!-- Overlay -->
+<div id="sidebar-overlay" onclick="toggleSidebar()" style="position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); z-index: 998; display: none;"></div>
+
+<!-- Script to Toggle Sidebar -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("mobile-nav-menu");
+    const overlay = document.getElementById("sidebar-overlay");
+
+    if (sidebar.style.left === "0px") {
+      sidebar.style.left = "-300px";
+      overlay.style.display = "none";
+    } else {
+      sidebar.style.left = "0px";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+
+
+    <!-- Overlay for Sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-990 hidden transition-opacity duration-300 opacity-0"></div>
+
+    <main>
+        <!-- 1. Homepage -->
+        <section id="home" class="relative h-screen flex flex-col justify-center items-center text-center px-4 py-20 animated-bg">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-on-scroll">
+                Explore All AI Tools in the World
+            </h1>
+            <p class="text-xl md:text-2xl text-white max-w-3xl mb-10 animate-on-scroll" style="transition-delay: 0.2s;">
+                Dive into the revolutionary world of Artificial Intelligence. Discover, understand, and leverage cutting-edge AI tools that are shaping our future.
+            </p>
+            <a href="#categories-of-ai-tools" class="neon-button text-white text-xl md:text-2xl font-semibold py-4 px-8 rounded-full shadow-lg animate-on-scroll" style="transition-delay: 0.4s;">
+                Start Exploring Tools
+            </a>
+        </section>
+
+        <!-- 2. What Are AI Tools? -->
+        <section id="what-are-ai-tools" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">What Are AI Tools?</h2>
+            <div class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed animate-on-scroll" style="transition-delay: 0.1s;">
+                <p class="mb-8">
+                    Artificial Intelligence (AI) tools are software applications, platforms, or systems designed to perform tasks that typically require human intelligence. This includes learning, problem-solving, decision-making, and understanding language or images.
+                </p>
+                <p class="mb-8">
+                    They leverage advanced algorithms and vast amounts of data to recognize patterns, make predictions, and automate complex processes, transforming industries and daily life.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md w-full sm:w-1/2 lg:w-1/4 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <!-- Machine Learning Icon (SVG) -->
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 7h2m-2 10h2M17 7h2m-2 10h2M3 12h2m14 0h2M7 3h10a2 2 0 012 2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">Machine Learning</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">AI learns from data without explicit programming.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md w-full sm:w-1/2 lg:w-1/4 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <!-- Neural Networks Icon (SVG) -->
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">Neural Networks</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Inspired by the human brain for complex pattern recognition.</p>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mt-12 animate-on-scroll" style="transition-delay: 0.4s;">
+                <h3 class="text-3xl font-semibold mb-6">How AI is Used Daily</h3>
+                <ul class="list-disc list-inside text-left mx-auto max-w-2xl space-y-2 text-gray-700 dark:text-gray-300">
+                    <li>**Smart Assistants:** Siri, Alexa, Google Assistant help with daily tasks.</li>
+                    <li>**Recommendation Systems:** Netflix, Amazon suggest content and products.</li>
+                    <li>**Spam Filters:** AI identifies and blocks unwanted emails.</li>
+                    <li>**Facial Recognition:** Used in phone unlocks and security systems.</li>
+                    <li>**Navigation Apps:** Optimize routes and predict traffic.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. How AI Tools Work -->
+        <section id="how-ai-tools-work" class="py-20 px-4 md:px-12 bg-gray-50 dark:bg-slate-800 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">How AI Tools Work</h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll">
+                    <!-- Data Collection Icon (SVG) -->
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7V4c0-1.105 3.582-2 8-2s8 .895 8 2v3"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">1. Data Collection</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">AI models are fed vast amounts of relevant data (text, images, audio) to learn patterns and relationships.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.1s;">
+                    <!-- Model Training Icon (SVG) -->
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">2. Model Training</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Algorithms process this data, adjusting their internal parameters to improve accuracy and performance.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.2s;">
+                    <!-- User Input -> Model Output Icon (SVG) -->
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">3. User Input → Output</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">When you provide input, the trained model processes it and generates a relevant output.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mt-16 text-lg md:text-xl leading-relaxed">
+                <h3 class="text-3xl font-semibold mb-8 animate-on-scroll">Real-World Examples</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 card rounded-xl shadow-md text-left animate-on-scroll" style="transition-delay: 0.3s;">
+                        <h4 class="text-2xl font-bold mb-4">ChatGPT (Text AI)</h4>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            You type a question or prompt (e.g., "Write a poem about space travel"). ChatGPT, trained on massive text datasets, processes your input and generates a coherent, creative poem as its output.
+                        </p>
+                        <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=ChatGPT+Example" alt="ChatGPT Example" class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                    <div class="p-6 card rounded-xl shadow-md text-left animate-on-scroll" style="transition-delay: 0.4s;">
+                        <h4 class="text-2xl font-bold mb-4">Midjourney (Image AI)</h4>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            You provide a text description (e.g., "A futuristic city at sunset, cyberpunk style, highly detailed"). Midjourney, trained on millions of images and their descriptions, interprets your prompt and generates a unique image matching your vision.
+                        </p>
+                        <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=Midjourney+Example" alt="Midjourney Example" class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Why AI Tools Are Important -->
+        <section id="why-ai-tools-important" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">Why AI Tools Are Important</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                AI tools are not just technological marvels; they are powerful enablers that enhance human capabilities, drive innovation, and solve complex challenges across various sectors.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.2s;">
+                    <!-- Education Icon -->
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zM12 14V4"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Education</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Personalized learning, automated grading, and research assistance.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.3s;">
+                    <!-- Business Icon -->
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 10h2m2 0h2m2 0h2m2 0h2M12 18h.01M19 18h.01M5 14h.01M19 14h.01M5 10a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2v-8z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Business</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Automated customer service, data analysis, and marketing optimization.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.4s;">
+                    <!-- Health Icon -->
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.071 12.071 0 003 12c0 2.892 1.045 5.518 2.707 7.502A11.955 11.955 0 0112 21.056c3.325-.101 6.51-.956 9.39-2.738a12.071 12.071 0 00-2.707-7.502z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Health</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Disease diagnosis, drug discovery, and personalized treatment plans.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.5s;">
+                    <!-- Productivity Icon -->
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 20v-3m0 0l.688-.688c.439-.439 1.15-.439 1.59 0l2.25 2.25c.439.439.439 1.15 0 1.59L15 21l-3-3m0 0l-.688.688c-.439.439-1.15.439-1.59 0l-2.25-2.25c-.439-.439-.439-1.15 0-1.59L9 21l3-3z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Productivity</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Task automation, smart scheduling, and efficient data processing.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.6s;">
+                    <!-- Content Creation Icon -->
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Content Creation</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Generate text, images, videos, and audio for various media.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.7s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V3a1 1 0 00-1-1H4a1 1 0 00-1 1v18a1 1 0 001 1h12a1 1 0 001-1v-4m-6-10h.01M16 18h.01"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Business Growth</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Enhance sales, marketing, customer service, and strategic planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Categories of AI Tools -->
+        <section id="categories-of-ai-tools" class="py-20 px-4 md:px-12 bg-gray-50 dark:bg-slate-800 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">Categories of AI Tools</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                Explore a diverse range of AI tools, categorized by their primary function. Click on any card to visit the official tool website.
+            </p>
+
+            <!-- Tool Category: Text AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.2s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                    Text AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://chat.openai.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=GPT" alt="ChatGPT Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">ChatGPT</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Conversational AI, content generation.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.jasper.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=JAS" alt="Jasper Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Jasper</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI writing assistant for marketing, sales, and more.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.grammarly.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=GRA" alt="Grammarly Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Grammarly</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Writing assistant for grammar, spelling, and style.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Image AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.3s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Image AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://www.midjourney.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=MJ" alt="Midjourney Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Midjourney</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Generates high-quality images from text prompts.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://openai.com/dall-e" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=DALL-E" alt="DALL·E Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">DALL·E</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Creates realistic images and art from natural language descriptions.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://leonardo.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=LEO" alt="Leonardo AI Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Leonardo AI</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI art generation with advanced controls and features.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Video AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.4s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Video AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://pictory.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=PIC" alt="Pictory Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Pictory</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Creates short, shareable videos from long-form content.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://runwayml.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=RUN" alt="Runway ML Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Runway ML</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI video editing, motion graphics, and content generation.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://openai.com/sora" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=SORA" alt="Sora Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Sora</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Generates realistic and imaginative scenes from text instructions.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Voice AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.5s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    Voice AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://www.elevenlabs.io" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=EL" alt="ElevenLabs Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">ElevenLabs</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">High-quality AI voice synthesis and cloning.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://murf.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=MUR" alt="Murf Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Murf</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI voice generator for podcasts, videos, and presentations.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.resemble.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=RES" alt="Resemble AI Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Resemble AI</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Generates realistic human voices with emotion and nuance.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Developer AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.6s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Developer AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://github.com/features/copilot" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=COP" alt="GitHub Copilot Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">GitHub Copilot</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI pair programmer that suggests code and functions.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.tabnine.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=TAB" alt="Tabnine Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Tabnine</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI code completion tool for developers.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Analytics AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.7s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                    Analytics AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://www.tableau.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=TABL" alt="Tableau AI Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Tableau AI</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI-powered analytics and data visualization.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://powerbi.microsoft.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=PBI" alt="Power BI Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Power BI</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Business intelligence tool with AI capabilities for data analysis.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Business & Marketing AI -->
+            <div class="mb-16 animate-on-scroll" style="transition-delay: 0.8s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V3a1 1 0 00-1-1H4a1 1 0 00-1 1v18a1 1 0 001 1h12a1 1 0 001-1v-4m-6-10h.01M16 18h.01"></path></svg>
+                    Business & Marketing AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://www.copy.ai" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=COPY" alt="Copy.ai Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Copy.ai</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI content generator for marketing copy, sales emails, and more.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.ocoya.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=OCO" alt="Ocoya Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Ocoya</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI-powered content creation and scheduling for social media.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://surferseo.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=SURF" alt="Surfer SEO Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Surfer SEO</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI content optimizer for search engine ranking.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tool Category: Education AI -->
+            <div class="animate-on-scroll" style="transition-delay: 0.9s;">
+                <h3 class="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 mr-4 text-primary-light dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                    Education AI
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="https://www.khanacademy.org/khan-labs" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=KHAN" alt="Khanmigo Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Khanmigo</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI-powered tutor for personalized learning on Khan Academy.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://socratic.org" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=SOC" alt="Socratic Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Socratic</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI learning app by Google that helps with homework.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                    <a href="https://www.quillbot.com" target="_blank" class="tool-card p-6 card rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3b82f6?text=QUILL" alt="Quillbot Icon" class="w-16 h-16 mb-4 rounded-full">
+                        <h4 class="text-xl font-semibold mb-2">Quillbot</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">AI paraphrasing tool and writing assistant.</p>
+                        <span class="text-primary-light dark:text-primary-dark font-medium">Visit Tool &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. How to Use AI Tools -->
+        <section id="how-to-use-ai-tools" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">How to Use AI Tools: A Beginner's Guide</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                Getting started with AI tools is easier than you think! Follow these simple steps to unlock their potential.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="p-6 card rounded-xl shadow-md text-left animate-on-scroll" style="transition-delay: 0.2s;">
+                    <h3 class="text-2xl font-semibold mb-4">1. Sign Up & Explore</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                        Visit the official website of your chosen AI tool (e.g., ChatGPT, Midjourney). Look for "Sign Up" or "Get Started" buttons. Most offer free tiers or trials.
+                    </p>
+                    <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=Sign+Up+Example" alt="Sign Up Example" class="rounded-lg w-full h-auto object-cover">
+                </div>
+                <div class="p-6 card rounded-xl shadow-md text-left animate-on-scroll" style="transition-delay: 0.3s;">
+                    <h3 class="text-2xl font-semibold mb-4">2. Write Effective Prompts</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                        The quality of AI output depends heavily on your input. Be clear, specific, and provide context. Experiment with different phrasings.
+                    </p>
+                    <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=Prompt+Example" alt="Prompt Example" class="rounded-lg w-full h-auto object-cover">
+                </div>
+                <div class="p-6 card rounded-xl shadow-md text-left animate-on-scroll" style="transition-delay: 0.4s;">
+                    <h3 class="text-2xl font-semibold mb-4">3. Use & Refine Results</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                        Review the AI's output. If it's not perfect, don't worry! You can often refine it by providing follow-up prompts or editing the generated content.
+                    </p>
+                    <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=Refine+Example" alt="Refine Example" class="rounded-lg w-full h-auto object-cover">
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mt-16 text-lg md:text-xl leading-relaxed animate-on-scroll" style="transition-delay: 0.5s;">
+                <h3 class="text-3xl font-semibold mb-8">Sample Prompts</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 card rounded-xl shadow-md text-left">
+                        <h4 class="text-xl font-bold mb-2">For Text AI (e.g., ChatGPT):</h4>
+                        <ul class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>"Explain quantum physics in simple terms for a 10-year-old."</li>
+                            <li>"Write a short, persuasive email to a client about a new software feature."</li>
+                            <li>"Brainstorm 5 unique ideas for a sci-fi short story."</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 card rounded-xl shadow-md text-left">
+                        <h4 class="text-xl font-bold mb-2">For Image AI (e.g., Midjourney):</h4>
+                        <ul class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>"A serene Japanese garden with cherry blossoms, golden hour, cinematic."</li>
+                            <li>"A robot chef cooking pasta in a futuristic kitchen, vibrant colors, detailed."</li>
+                            <li>"Abstract art, swirling galaxies, watercolor style, soft pastels."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: ✨ AI Prompt Generator ✨ -->
+        <section id="ai-prompt-generator" class="py-20 px-4 md:px-12 bg-gray-50 dark:bg-slate-800 text-center" style="display : none;" >
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">✨ AI Prompt Generator ✨</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-10 animate-on-scroll" style="transition-delay: 0.1s;">
+                Unleash your creativity! Describe your idea, choose a prompt type, and let our AI generate a detailed prompt for you.
+            </p>
+
+            <div class="max-w-3xl mx-auto p-8 card rounded-xl shadow-lg animate-on-scroll" style="transition-delay: 0.2s;">
+                <div class="mb-6 text-left">
+                    <label for="prompt-idea" class="block text-lg font-medium mb-2">Your Idea:</label>
+                    <textarea id="prompt-idea" rows="4" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 focus:ring-primary-light focus:border-primary-light transition-colors duration-300" placeholder="e.g., A futuristic city, a story about a talking cat, a marketing slogan for a new coffee shop..."></textarea>
+                </div>
+                <div class="mb-8 text-left">
+                    <label for="prompt-type" class="block text-lg font-medium mb-2">Prompt Type:</label>
+                    <select id="prompt-type" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 focus:ring-primary-light focus:border-primary-light transition-colors duration-300">
+                        <option value="text">Text Generation (e.g., for ChatGPT)</option>
+                        <option value="image">Image Generation (e.g., for Midjourney, DALL-E)</option>
+                        <option value="story">Story Outline</option>
+                        <option value="email">Professional Email Draft</option>
+                    </select>
+                </div>
+                <button id="generate-prompt-btn" class="neon-button text-white text-xl font-semibold py-3 px-6 rounded-full shadow-lg w-full md:w-auto">
+                    Generate Prompt ✨
+                </button>
+
+                <div id="loading-indicator" class="mt-8 hidden">
+                    <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4 mx-auto"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">Generating your prompt...</p>
+                </div>
+
+                <div id="generated-prompt-output" class="mt-8 p-6 bg-gray-100 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 text-left whitespace-pre-wrap hidden">
+                    <h3 class="text-xl font-semibold mb-3">Your Generated Prompt:</h3>
+                    <p class="text-gray-800 dark:text-gray-200" id="prompt-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. All Purposes of AI Tools -->
+        <section id="all-purposes-of-ai-tools" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">All Purposes of AI Tools</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                AI tools serve a multitude of purposes, empowering individuals and organizations across every domain imaginable.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.2s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Content Creation</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Generate text, images, videos, and audio for various media.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.3s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Automation</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Streamline repetitive tasks and workflows across industries.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.4s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Design & Development</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Assist in coding, UI/UX design, and software development.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.5s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Voice & Video</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Speech synthesis, video generation, and media enhancement.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.6s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Learning</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Personalized education, research, and knowledge acquisition.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md animate-on-scroll" style="transition-delay: 0.7s;">
+                    <svg class="w-16 h-16 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V3a1 1 0 00-1-1H4a1 1 0 00-1 1v18a1 1 0 001 1h12a1 1 0 001-1v-4m-6-10h.01M16 18h.01"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Business Growth</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Enhance sales, marketing, customer service, and strategic planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Future of AI -->
+        <section id="future-of-ai" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">The Future of AI</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                Artificial Intelligence is rapidly evolving, promising transformative changes across all facets of human life in the coming years.
+            </p>
+
+            <div class="max-w-6xl mx-auto mb-16 animate-on-scroll" style="transition-delay: 0.2s;">
+                <h3 class="text-3xl font-semibold mb-8">Timeline: 2025 – 2030</h3>
+                <div class="relative pt-8 pb-16">
+                    <div class="absolute inset-x-0 top-1/2 h-1 bg-primary-light dark:bg-primary-dark transform -translate-y-1/2"></div>
+                    <div class="flex justify-between items-center relative z-10">
+                        <div class="flex flex-col items-center w-1/4">
+                            <div class="w-6 h-6 rounded-full bg-primary-light dark:bg-primary-dark mb-2"></div>
+                            <p class="text-lg font-semibold">2025</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Wider adoption of AI in daily apps.</p>
+                        </div>
+                        <div class="flex flex-col items-center w-1/4">
+                            <div class="w-6 h-6 rounded-full bg-primary-light dark:bg-primary-dark mb-2"></div>
+                            <p class="text-lg font-semibold">2027</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Advanced personalized AI assistants.</p>
+                        </div>
+                        <div class="flex flex-col items-center w-1/4">
+                            <div class="w-6 h-6 rounded-full bg-primary-light dark:bg-primary-dark mb-2"></div>
+                            <p class="text-lg font-semibold">2028</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Significant breakthroughs in AI for healthcare.</p>
+                        </div>
+                        <div class="flex flex-col items-center w-1/4">
+                            <div class="w-6 h-6 rounded-full bg-primary-light dark:bg-primary-dark mb-2"></div>
+                            <p class="text-lg font-semibold">2030</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">AI integration in smart cities and infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto mb-16 animate-on-scroll" style="transition-delay: 0.3s;">
+                <h3 class="text-3xl font-semibold mb-8">Visual Trends & Ethical Considerations</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 card rounded-xl shadow-md text-left">
+                        <h4 class="text-2xl font-bold mb-4">Emerging Trends</h4>
+                        <ul class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>**Generative AI:** More sophisticated content creation.</li>
+                            <li>**Edge AI:** AI processing on devices, not just cloud.</li>
+                            <li>**Explainable AI (XAI):** Understanding how AI makes decisions.</li>
+                            <li>**AI in Robotics:** Advanced humanoid and industrial robots.</li>
+                        </ul>
+                        <img src="https://placehold.co/600x300/e0e7ff/3b82f6?text=AI+Trends" alt="AI Trends Visual" class="rounded-lg w-full h-auto object-cover mt-4">
+                    </div>
+                    <div class="p-6 card rounded-xl shadow-md text-left">
+                        <h4 class="text-2xl font-bold mb-4">AI Ethics & Responsible Use</h4>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            As AI becomes more powerful, ensuring its ethical and responsible development is paramount. This includes addressing concerns around:
+                        </p>
+                        <ul class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>**Bias:** Ensuring fairness in algorithms.</li>
+                            <li>**Privacy:** Protecting user data.</li>
+                            <li>**Accountability:** Defining responsibility for AI actions.</li>
+                            <li>**Transparency:** Understanding AI decision-making processes.</li>
+                            <li>**Job Displacement:** Managing the impact on the workforce.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. AI Tool Directory -->
+        <section id="ai-tool-directory" class="py-20 px-4 md:px-12 bg-gray-50 dark:bg-slate-800 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">AI Tool Directory</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-10 animate-on-scroll" style="transition-delay: 0.1s;">
+                A comprehensive, searchable, and filterable list of AI tools. Find the perfect tool for your needs!
+            </p>
+
+            <div class="max-w-6xl mx-auto mb-8 flex flex-col md:flex-row gap-4 animate-on-scroll" style="transition-delay: 0.2s;">
+                <input type="text" id="search-input" placeholder="Search tools by name or description..." class="flex-grow p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 focus:ring-primary-light focus:border-primary-light transition-colors duration-300">
+                <select id="category-filter" class="p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 focus:ring-primary-light focus:border-primary-light transition-colors duration-300">
+                    <option value="all">All Categories</option>
+                    <option value="Text AI">Text AI</option>
+                    <option value="Image AI">Image AI</option>
+                    <option value="Video AI">Video AI</option>
+                    <option value="Voice AI">Voice AI</option>
+                    <option value="Developer AI">Developer AI</option>
+                    <option value="Analytics AI">Analytics AI</option>
+                    <option value="Business & Marketing AI">Business & Marketing AI</option>
+                    <option value="Education AI">Education AI</option>
+                </select>
+                <select id="pricing-filter" class="p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 focus:ring-primary-light focus:border-primary-light transition-colors duration-300">
+                    <option value="all">All Pricing</option>
+                    <option value="Free">Free</option>
+                    <option value="Freemium">Freemium</option>
+                    <option value="Paid">Paid</option>
+                </select>
+            </div>
+
+            <div id="tool-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Tool cards will be dynamically inserted here -->
+            </div>
+            <p id="no-results" class="text-center text-xl text-gray-600 dark:text-gray-400 mt-8 hidden">No tools found matching your criteria.</p>
+        </section>
+
+        <!-- 10. Blog Section -->
+        <section id="blog-section" class="py-20 px-4 md:px-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">AI Insights: Our Blog</h2>
+            <p class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-16 animate-on-scroll" style="transition-delay: 0.1s;">
+                Stay updated with the latest AI news, helpful tutorials, and insightful comparisons.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card rounded-xl shadow-md overflow-hidden text-left animate-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/600x350/e0e7ff/3b82f6?text=AI+Tools" alt="Blog Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Top 10 AI Tools for Creators in 2025</h3>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            Discover the must-have AI tools that are revolutionizing content creation for artists, writers, and designers.
+                        </p>
+                        <!-- The 'Read More' link opens in a new tab -->
+                        <a href="AITools.html" target="_blank" class="text-primary-light dark:text-primary-dark font-medium hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="card rounded-xl shadow-md overflow-hidden text-left animate-on-scroll" style="transition-delay: 0.3s;">
+                    <img src="https://placehold.co/600x350/e0e7ff/3b82f6?text=ChatGPT+Guide" alt="Blog Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Beginner's Guide to ChatGPT: Master Prompt Engineering</h3>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            Learn the fundamentals of interacting with ChatGPT and crafting prompts for optimal results.
+                        </p>
+                        <!-- The 'Read More' link opens in a new tab -->
+                        <a href="blog-beginner-chatgpt-guide.html" target="_blank" class="text-primary-light dark:text-primary-dark font-medium hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="card rounded-xl shadow-md overflow-hidden text-left animate-on-scroll" style="transition-delay: 0.4s;">
+                    <img src="https://placehold.co/600x350/e0e7ff/3b82f6?text=AI+Ethics" alt="Blog Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">The Ethical Landscape of AI: Navigating the Future</h3>
+                        <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                            An in-depth look at the ethical considerations and responsible practices in AI development.
+                        </p>
+                        <!-- The 'Read More' link opens in a new tab -->
+                        <a href="blog-ai-ethics.html" target="_blank" class="text-primary-light dark:text-primary-dark font-medium hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: About Us -->
+        <section id="about-us" class="py-20 px-4 md:px-12 text-center bg-gray-50 dark:bg-slate-800">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">About SourceGenius</h2>
+            <div class="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed animate-on-scroll" style="transition-delay: 0.1s;">
+                <p class="mb-8">
+                    Welcome to **AI Nexus**, your premier destination for exploring the vast and rapidly evolving world of Artificial Intelligence tools. Our mission is to demystify AI, making it accessible and understandable for everyone, from curious beginners to seasoned professionals.
+                </p>
+                <p class="mb-8">
+                    We believe that AI is not just a technology but a powerful catalyst for innovation and progress. Our platform is dedicated to curating, categorizing, and explaining a wide array of AI tools, helping you discover how they work, why they are important, and how you can leverage them in your daily life and work.
+                </p>
+                <p class="mb-8">
+                    At AI Nexus, we are passionate about fostering a deeper understanding of AI's potential and its ethical implications. We strive to be a reliable resource, providing insights, guides, and a comprehensive directory to empower you on your AI journey. Join us as we navigate the exciting future of artificial intelligence together!
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md w-full sm:w-1/2 lg:w-1/4 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-2">Educate</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Demystifying AI for all levels of users.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md w-full sm:w-1/2 lg:w-1/4 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-2">Explore</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Curating a comprehensive directory of AI tools.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 card rounded-xl shadow-md w-full sm:w-1/2 lg:w-1/4 animate-on-scroll" style="transition-delay: 0.4s;">
+                    <svg class="w-20 h-20 text-primary-light dark:text-primary-dark mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.071 12.071 0 003 12c0 2.892 1.045 5.518 2.707 7.502A11.955 11.955 0 0112 21.056c3.325-.101 6.51-.956 9.39-2.738a12.071 12.071 0 00-2.707-7.502z"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-2">Empower</h3>
+                    <p class="text-base text-gray-600 dark:text-gray-400">Helping users leverage AI for personal and professional growth.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="p-3 rounded-full bg-primary-light dark:bg-primary-dark text-white shadow-lg hover:scale-110 transition-transform duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <footer class="py-10 px-4 md:px-12 text-center text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-slate-700">
+        <p>&copy; 2025 AI Nexus. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>

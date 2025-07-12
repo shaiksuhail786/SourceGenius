@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner's Guide to ChatGPT - AI Nexus Blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet (for dark mode variables) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+    <header class="bg-white dark:bg-slate-800 shadow-md py-6 px-4 md:px-12">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-primary-light dark:text-primary-dark">SourceGenius</a>
+            <nav>
+                <a href="index.html" class="text-lg font-medium hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">← Back to Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
+        <article class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 md:p-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center leading-tight">Beginner's Guide to ChatGPT: Master Prompt Engineering</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 text-center">
+                <time datetime="2025-07-10">July 10, 2025</time> by AI Nexus Team
+            </p>
+
+            <img src="https://placehold.co/800x450/e0e7ff/3b82f6?text=ChatGPT+Prompt+Engineering" alt="ChatGPT Prompt Engineering" class="w-full h-auto rounded-lg mb-10 object-cover">
+
+            <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed">
+                <p class="mb-6">
+                    ChatGPT has revolutionized how we interact with AI, making advanced language models accessible to everyone. But to truly unlock its potential, you need to master the art of "prompt engineering" – crafting effective instructions that guide the AI to produce the best possible results. This guide will get you started!
+                </p>
+
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 mt-8">What is ChatGPT?</h2>
+                <p class="mb-4">
+                    ChatGPT is a large language model developed by OpenAI. It's trained on a massive dataset of text and code, allowing it to understand and generate human-like text across a wide range of topics and styles. It can answer questions, write essays, summarize documents, brainstorm ideas, and much more.
+                </p>
+
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 mt-8">The Basics of Prompt Engineering</h2>
+                <p class="mb-4">
+                    Think of a prompt as your instructions to the AI. The clearer and more specific your instructions, the better the AI's output will be.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-semibold mb-3 mt-6">1. Be Clear and Concise</h3>
+                <p class="mb-4">
+                    Avoid ambiguity. State exactly what you want.
+                </p>
+                <ul class="list-disc list-inside mb-6 space-y-2">
+                    <li><strong>Bad:</strong> "Write something about dogs."</li>
+                    <li><strong>Good:</strong> "Write a short, heartwarming story about a golden retriever puppy's first day in its new home."</li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-semibold mb-3 mt-6">2. Provide Context</h3>
+                <p class="mb-4">
+                    Give the AI enough background information to understand the scope and purpose of your request.
+                </p>
+                <ul class="list-disc list-inside mb-6 space-y-2">
+                    <li><strong>Bad:</strong> "Explain AI."</li>
+                    <li><strong>Good:</strong> "Explain Artificial Intelligence to a high school student, focusing on its applications in everyday life and avoiding complex technical jargon."</li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-semibold mb-3 mt-6">3. Specify Format and Length</h3>
+                <p class="mb-4">
+                    If you need a specific output structure or word count, include it in your prompt.
+                </p>
+                <ul class="list-disc list-inside mb-6 space-y-2">
+                    <li><strong>Bad:</strong> "Give me recipes."</li>
+                    <li><strong>Good:</strong> "Provide three easy dinner recipes for a vegetarian, each with a list of ingredients and step-by-step instructions, formatted as a bulleted list."</li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-semibold mb-3 mt-6">4. Define the Role</h3>
+                <p class="mb-4">
+                    Tell ChatGPT what persona it should adopt. This can significantly influence the tone and style.
+                </p>
+                <ul class="list-disc list-inside mb-6 space-y-2">
+                    <li><strong>Bad:</strong> "Tell me about history."</li>
+                    <li><strong>Good:</strong> "Act as a witty history professor and explain the causes of World War I in a conversational and engaging manner."</li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-semibold mb-3 mt-6">5. Use Examples (Few-Shot Prompting)</h3>
+                <p class="mb-4">
+                    For more complex tasks, providing a few examples of desired input/output pairs can be highly effective.
+                </p>
+                <p class="mb-4 font-mono bg-gray-100 dark:bg-slate-700 p-3 rounded-md text-sm">
+                    Input: "apple"<br>
+                    Output: "fruit"<br><br>
+                    Input: "carrot"<br>
+                    Output: "vegetable"<br><br>
+                    Input: "banana"<br>
+                    Output: "
+                </p>
+                <p class="mb-6">
+                    (ChatGPT would likely complete with "fruit".)
+                </p>
+
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 mt-8">Advanced Tips for Better Results</h2>
+                <ul class="list-disc list-inside mb-6 space-y-2">
+                    <li><strong>Iterate and Refine:</strong> Don't expect perfection on the first try. Use the AI's output to refine your next prompt.</li>
+                    <li><strong>Break Down Complex Tasks:</strong> For long or intricate requests, break them into smaller, manageable prompts.</li>
+                    <li><strong>Specify Constraints:</strong> Tell the AI what *not* to do (e.g., "Do not include any technical jargon").</li>
+                    <li><strong>Experiment:</strong> The best way to learn is by trying different approaches.</li>
+                </ul>
+
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 mt-8">Conclusion</h2>
+                <p class="mb-6">
+                    Prompt engineering is a skill that improves with practice. By applying these principles, you'll soon be able to harness ChatGPT's immense power to assist you in writing, research, brainstorming, and countless other tasks. Happy prompting!
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-10 px-4 md:px-12 text-center text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-slate-700">
+        <p>&copy; 2025 AI Nexus. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Basic dark mode toggle for standalone page
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* Custom CSS for Dark/Light Mode and Animations */
+:root {
+    --background-light: #f8fafc; /* Slate-50 */
+    --text-light: #1e293b; /* Slate-800 */
+    --primary-light: #3b82f6; /* Blue-500 */
+    --secondary-light: #60a5fa; /* Blue-400 */
+    --card-bg-light: #ffffff;
+    --border-light: #e2e8f0; /* Slate-200 */
+    --glow-color-light: rgba(59, 130, 246, 0.5); /* Blue-500 */
+}
+
+.dark {
+    --background-dark: #0f172a; /* Slate-900 */
+    --text-dark: #e2e8f0; /* Slate-200 */
+    --primary-dark: #60a5fa; /* Blue-400 */
+    --secondary-dark: #93c5fd; /* Blue-300 */
+    --card-bg-dark: #1e293b; /* Slate-800 */
+    --border-dark: #334155; /* Slate-700 */
+    --glow-color-dark: rgba(96, 165, 250, 0.5); /* Blue-400 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-light);
+    transition: background-color 0.5s ease, border-color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px var(--glow-color-light);
+}
+
+.dark .tool-card:hover {
+    box-shadow: 0 8px 25px var(--glow-color-dark);
+}
+
+.neon-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #3b82f6, #60a5fa); /* Blue gradient */
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(96, 165, 250, 0.5);
+    transition: all 0.3s ease;
+}
+
+.dark .neon-button {
+    background: linear-gradient(45deg, #60a5fa, #93c5fd); /* Lighter blue gradient for dark mode */
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.7), 0 0 20px rgba(147, 197, 253, 0.5);
+}
+
+.neon-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 1), 0 0 30px rgba(96, 165, 250, 0.8);
+}
+
+.dark .neon-button:hover {
+    box-shadow: 0 0 15px rgba(96, 165, 250, 1), 0 0 30px rgba(147, 197, 253, 0.8);
+}
+
+.animated-bg {
+    background: linear-gradient(45deg, #3b82f6, #60a5fa, #93c5fd, #bfdbfe);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+.dark .animated-bg {
+    background: linear-gradient(45deg, #1e3a8a, #1d4ed8, #2563eb, #3b82f6);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Scroll-based animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific animation delays */
+.animate-on-scroll:nth-child(1) { transition-delay: 0s; }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+.animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+/* Add more as needed for staggered effects */
+
+/* Sticky Navbar */
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.dark .sticky-navbar {
+    background-color: rgba(15, 23, 42, 0.9); /* Slate-900 with transparency */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Back to top button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hamburger menu for mobile */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-light);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.dark .hamburger-menu span {
+    background-color: var(--text-dark);
+}
+
+.hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.hamburger-menu.open span:nth-child(2) { opacity: 0; }
+.hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+/* Mobile Navigation Sidebar */
+.mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Hidden off-screen to the right */
+    width: 280px; /* Fixed width for the sidebar */
+    height: 100vh;
+    background-color: var(--card-bg-light);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* Space for the fixed navbar */
+    transition: right 0.3s ease-in-out; /* Smooth slide transition */
+    z-index: 995; /* Below navbar but above content */
+    overflow-y: auto; /* Enable scrolling if menu content is long */
+}
+
+.dark .mobile-nav-menu {
+    background-color: var(--card-bg-dark);
+}
+
+.mobile-nav-menu.open {
+    right: 0; /* Slide into view */
+}
+
+/* Overlay for Sidebar */
+#sidebar-overlay {
+    z-index: 990; /* Below sidebar, above main content */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#sidebar-overlay.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu { display: flex; 
+            visibility: hidden;}
+
+    .desktop-nav-menu { display: none; }
+}
+
+/* Loader for AI Prompt Generator */
+.loader {
+    border-top-color: var(--primary-light);
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+}
+
+.dark .loader {
+    border-top-color: var(--primary-dark);
+}
+
+@-webkit-keyframes spinner {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
